@@ -42,6 +42,12 @@ public class ProductsServiceImpl implements ProductService {
             productTypedId = typesDAO.save(productTypedId);
         }
 
+        if(productBrandId == null) {
+            productBrandId = new BrandsModel();
+            productBrandId.setName(String.format(product.getBrand()));
+            productBrandId = brandsDAO.save(productBrandId);
+        }
+
 
         productModel.setName(product.getProductName());
         productModel.setIdBrand(productBrandId);

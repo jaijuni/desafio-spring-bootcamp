@@ -5,6 +5,7 @@ import com.mercadolivre.bootcamp.desafio.DAO.PostsDAO;
 import com.mercadolivre.bootcamp.desafio.DAO.UsersDAO;
 import com.mercadolivre.bootcamp.desafio.dtos.requests.CreatePostDTO;
 import com.mercadolivre.bootcamp.desafio.dtos.responses.*;
+import com.mercadolivre.bootcamp.desafio.models.CategoriesModel;
 import com.mercadolivre.bootcamp.desafio.models.PostsModel;
 import com.mercadolivre.bootcamp.desafio.models.ProductsModel;
 import com.mercadolivre.bootcamp.desafio.models.UsersModel;
@@ -55,7 +56,15 @@ public class PostServiceImpl implements PostService {
         postsModel.setDate(LocalDate.ofInstant(datet, ZoneId.of("America/Sao_Paulo")));
         postsModel.setIdUserPoster(usersDAO.getById(post.getUserId()));
         postsModel.setPrice(post.getPrice());
-        postsModel.setIdCategory(categoriesDAO.getById(post.getCategory()));
+        if(categoriesDAO.getById(post.getCategory()) != null) {
+            postsModel.setIdCategory(categoriesDAO.getById(post.getCategory()));
+        } else {
+            CategoriesModel category = new CategoriesModel();
+            category.setName("Nova Categoria");
+            category.setId(post.getCategory());
+            category = categoriesDAO.save(category);
+            postsModel.setIdCategory(category);
+        }
         postsModel.setHasPromo(post.isHasPromo());
         postsModel.setDiscount(post.getDiscount());
 
