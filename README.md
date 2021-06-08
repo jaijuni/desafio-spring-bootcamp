@@ -8,7 +8,7 @@ Caso queira colocar o banco de dados para ser como arquivo, basta descomentar a 
 Basicamente todos os endpoints estão na mesma forma que o proposto nos requisitos técnicos, mas recomendo o uso do arquivo json pra importar todos as requisições no insomnia, pra poder já ter acesso alguns endpoints usados nos testes da aplicação
 [Download Arquivo JSON](https://drive.google.com/file/d/1kfw_Edszq_68NjKxjcxROGJ0KjZhRCmx/view?usp=sharing)
 
-##Observação:
+## Observação:
 No **12º exercicio** temos a questão de mostrar se os posts são promocionais ou não, no caso no enunciado não manda uma request específica pra cada, então para poder ajustar essa questão e mostrar somente os promos quando desejado e somente os não promos também quando desejado temos a variável promo no Path param na uri ficando assim a requisição `localhost:8080/products/2/list/?promo=false`.
 
 #### Muito obrigado pela atenção e desejo uma ótima experiência com o Social Meli =]
