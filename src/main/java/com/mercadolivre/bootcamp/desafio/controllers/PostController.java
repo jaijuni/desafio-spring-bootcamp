@@ -25,7 +25,8 @@ public class PostController {
             postService.createPost(postDTO);
             return new ResponseEntity(HttpStatus.OK);
         } catch(Exception e) {
-            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+            e.printStackTrace();
+            return new ResponseEntity(e.getMessage(),HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -35,7 +36,7 @@ public class PostController {
             postService.createPost(postDTO);
             return new ResponseEntity(HttpStatus.OK);
         } catch(Exception e) {
-            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 

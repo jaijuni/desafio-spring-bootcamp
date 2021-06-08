@@ -64,7 +64,7 @@ public class GenericImpl {
     }
 
     public void initCategories(){
-        category.setName("Categoria de teste");
+        category.setName("Category Padrão");
         categoriesDAO.save(category);
     }
 

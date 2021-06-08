@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CategoriesDAO extends JpaRepository<CategoriesModel, Integer> {
-    @Query(value = "SELECT * FROM CATEGORIES WHERE NAME LIKE '%:value%' LIMIT 0,1", nativeQuery = true)
-    CategoriesModel getCategoryIdByValue(@Param("value") String value);
+    @Query(value = "SELECT * FROM CATEGORIES WHERE NAME=?1 LIMIT 0,1", nativeQuery = true)
+    CategoriesModel getCategoryIdByValue(String value);
 }
