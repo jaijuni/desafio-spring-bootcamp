@@ -17,6 +17,7 @@ public class GenericController {
     @PostMapping("/init")
     public ResponseEntity initApp() {
         try {
+
             impl.initUsers();
             impl.initCategories();
             impl.initBrands();
