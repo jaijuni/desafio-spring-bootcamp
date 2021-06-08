@@ -71,7 +71,7 @@ public class FollowsServiceImpl implements FollowsService {
         List<Integer> followsIds = new ArrayList<>();
         DateFollowComparator dateFollowComparator = new DateFollowComparator();
 
-        if(order.split("_")[0].equals("date")) {
+        if(order != null && order.split("_")[0].equals("date")) {
             if(order.split("_")[1].equals("asc") || order.split("_")[1].equals("ASC")) {
                 follows.sort(dateFollowComparator);
             } else {

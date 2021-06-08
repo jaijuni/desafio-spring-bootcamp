@@ -25,7 +25,7 @@ public class PostController {
             postService.createPost(postDTO);
             return new ResponseEntity(HttpStatus.OK);
         } catch(Exception e) {
-            return new ResponseEntity(e.toString(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -35,7 +35,7 @@ public class PostController {
             postService.createPost(postDTO);
             return new ResponseEntity(HttpStatus.OK);
         } catch(Exception e) {
-            return new ResponseEntity(e.toString(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -58,7 +58,7 @@ public class PostController {
             return new ResponseEntity(postService.getListOfPostsFromAUserByUserId(userId), HttpStatus.OK);
         } catch(Exception e) {
             e.printStackTrace();
-            return new ResponseEntity(e.toString(),HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -67,7 +67,7 @@ public class PostController {
         try {
             return new ResponseEntity(postService.getPromoPosts(userId), HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(e.toString(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 }

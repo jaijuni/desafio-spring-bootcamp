@@ -51,6 +51,12 @@ public class UsersServiceImpl implements UsersService {
         UsersFollowersListDTO userToReturn = new UsersFollowersListDTO();
         UsersModel userFromDatabase = usersDAO.getById(idUser);
 
+        if(sort != null ) {
+            sort = sort.split("_")[1];
+        } else {
+            sort = "ASC";
+        }
+
         idFollowers.forEach(followerId -> {
             UsersModel followerFromDataBase = usersDAO.getById(followerId);
             UsersDTO follower = new UsersDTO();

@@ -48,7 +48,8 @@ public class UsersController {
 
             return new ResponseEntity<>(user, HttpStatus.OK);
         }catch (Exception e) {
-            return new ResponseEntity<>(e.toString(), HttpStatus.BAD_REQUEST);
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
     }
@@ -56,11 +57,11 @@ public class UsersController {
     @GetMapping("/users/{userID}/followers/list")
     public ResponseEntity<String> getFollowersListOfAnUserByUserId(@PathVariable Integer userID, @PathParam("order") String order) {
         try {
-            System.out.println(order.split("_")[1]);
             List<Integer> idsList = followsService.getFollowersId(userID);
-            return new ResponseEntity(usersService.getFollowers(userID, idsList, order.split("_")[1]), HttpStatus.OK);
+            return new ResponseEntity(usersService.getFollowers(userID, idsList, order), HttpStatus.OK);
         } catch(Exception e) {
-            return new ResponseEntity<>(e.toString(), HttpStatus.BAD_REQUEST);
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -68,11 +69,11 @@ public class UsersController {
     public ResponseEntity<String> getUsersIFollow(@PathVariable Integer userID, @PathParam("order") String order) {
         try {
             List<Integer> idsList = followsService.getUsersIFollow(userID, order);
-            System.out.println(idsList);
             return new ResponseEntity(usersService.getUsersIFollow(userID, idsList), HttpStatus.OK);
 
         } catch(Exception e) {
-            return new ResponseEntity<>(e.toString(), HttpStatus.BAD_REQUEST);
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -82,6 +83,7 @@ public class UsersController {
             followsService.unfollow(userId, userIdToUnfollow);
             return new ResponseEntity(HttpStatus.OK);
         } catch(Exception e) {
+            e.printStackTrace();
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
     }
