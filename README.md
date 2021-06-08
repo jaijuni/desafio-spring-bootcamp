@@ -1,4 +1,4 @@
-![banner promocional mercado livre](https://lp.ecommercenapratica.com/wp-content/uploads/2018/12/mercado-livre-banner.jpg)
+![banner promocional mercado livre](https://media-exp1.licdn.com/dms/image/C4D16AQGfS0oAmsz1CA/profile-displaybackgroundimage-shrink_200_800/0/1614167337659?e=1627516800&v=beta&t=37I3eOgnRWT8N-inY2eorkHOg5z99C0ZyeRa8L8oDkk)
 # Desafio Spring - SocialMELI
 Este desafio consiste na criação de uma rede social para vendedores e usuários comuns, onde um usuário pode seguir um vendedor e ver o que ele posta, e um vendedor além de ter todas as funcionalidades de um usuário normal também pode criar posts e inserir produtos promocionais pra poder divulgá-los.
 
