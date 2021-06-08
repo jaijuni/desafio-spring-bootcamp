@@ -16,6 +16,13 @@ public class GenericImpl {
     private final TypesDAO typesDAO;
     private final BrandsDAO brandsDAO;
     private final ProductsDAO productsDAO;
+    private final UsersModel sellerUser = new UsersModel();
+    private final UsersModel simpleUser = new UsersModel();
+    private PostsModel post = new PostsModel();
+    private ProductsModel product = new ProductsModel();
+    private CategoriesModel category = new CategoriesModel();
+    private TypesModel type = new TypesModel();
+    private BrandsModel brand = new BrandsModel();
 
     public GenericImpl(UsersDAO usersDAO, PostsDAO postsDAO, CategoriesDAO categoriesDAO, TypesDAO typesDAO, BrandsDAO brandsDAO, ProductsDAO productsDAO) {
         this.usersDAO = usersDAO;
@@ -27,9 +34,6 @@ public class GenericImpl {
     }
 
     public void initUsers() {
-        UsersModel sellerUser = new UsersModel();
-        UsersModel simpleUser = new UsersModel();
-
         simpleUser.setName("John Doe Non Seller");
         simpleUser.setSeller(false);
 
@@ -41,41 +45,35 @@ public class GenericImpl {
     }
 
     public void initPosts() {
-        PostsModel post = new PostsModel();
-        ProductsModel product = new ProductsModel();
-
-        product.setIdSeller(usersDAO.getById(1));
+        product.setIdSeller(sellerUser);
         product.setNotes("Isso é apenas um teste");
         product.setColor("Vermelho testeado");
-        product.setIdType(typesDAO.getById(1));
-        product.setIdBrand(brandsDAO.getById(1));
+        product.setIdType(type);
+        product.setIdBrand(brand);
         product.setName("Produto");
 
-        product = productsDAO.save(product);
+        this.product = productsDAO.save(product);
 
         post.setPrice(100.0);
         post.setIdProduct(product);
-        post.setIdUserPoster(usersDAO.getById(1));
+        post.setIdUserPoster(sellerUser);
         post.setDate(LocalDate.now());
-        post.setIdCategory(categoriesDAO.getById(1));
+        post.setIdCategory(category);
 
         postsDAO.save(post);
     }
 
     public void initCategories(){
-        CategoriesModel category = new CategoriesModel();
         category.setName("Categoria de teste");
         categoriesDAO.save(category);
     }
 
     public void initTypes() {
-        TypesModel type = new TypesModel();
         type.setName("Tipo de teste");
         typesDAO.save(type);
     }
 
     public void initBrands() {
-        BrandsModel brand = new BrandsModel();
         brand.setName("Marca de teste");
         brandsDAO.save(brand);
     }
