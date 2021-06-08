@@ -1,4 +1,4 @@
-![banner promocional mercado livre](https://macoe.com.br/wp-content/uploads/2017/04/Banner-Macoe-Mercado-Livre.jpg)
+![banner promocional mercado livre](https://www.meioemensagem.com.br/wp-content/uploads/2016/05/mercado_livre_1600.jpg)
 # Desafio Spring - SocialMELI
 Este desafio consiste na criação de uma rede social para vendedores e usuários comuns, onde um usuário pode seguir um vendedor e ver o que ele posta, e um vendedor além de ter todas as funcionalidades de um usuário normal também pode criar posts e inserir produtos promocionais pra poder divulgá-los.
 
